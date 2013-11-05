@@ -1,0 +1,9 @@
+@import url(http://fonts.googleapis.com/css?family=Gorditas:400,700);
+body {padding-top: 0px; font-size:18px;}
+.header { background-color: #FFF; min-height: 250px; border-bottom: solid 5px #27ae60;}
+.header h1 { font-size: 90px; color: #27ae60;font-family:'Gorditas'; padding: 20px 0;}
+.nav>li>a {
+position: relative;
+display: block;
+padding: 15px 25px;
+}

@@ -1,0 +1,122 @@
+<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-md-6">
+
+<p>
+  <strong>Name:</strong>
+  <%= @business_profile.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @business_profile.email %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @business_profile.phone %>
+</p>
+
+<p>
+  <strong>Tagline:</strong>
+  <%= @business_profile.tagline %>
+</p>
+
+<p>
+  <strong>About:</strong>
+  <%= @business_profile.about %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @business_profile.url %>
+</p>
+
+<p>
+  <strong>Blog:</strong>
+  <%= @business_profile.blog %>
+</p>
+
+<p>
+  <strong>Twitter:</strong>
+  <%= @business_profile.twitter %>
+</p>
+
+<p>
+  <strong>Facebook:</strong>
+  <%= @business_profile.facebook %>
+</p>
+
+<p>
+  <strong>Linkedin:</strong>
+  <%= @business_profile.linkedin %>
+</p>
+
+<p>
+  <strong>Google:</strong>
+  <%= @business_profile.google %>
+</p>
+
+<p>
+  <strong>Github:</strong>
+  <%= @business_profile.github %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @business_profile.image %>
+</p>
+
+<p>
+  <strong>Slug:</strong>
+  <%= @business_profile.slug %>
+</p>
+
+<p>
+  <strong>Employees:</strong>
+  <%= @business_profile.employees %>
+</p>
+
+<p>
+  <strong>Hiring:</strong>
+  <%= @business_profile.hiring %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @business_profile.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @business_profile.longitude %>
+</p>
+
+<p>
+  <strong>Owner:</strong>
+  <%= @owner.user_profile.name %>
+</p>
+</div>
+<div class="col-md-6">
+<h3>Associated users:</h3>
+<% if @business_profile.users %>
+  <ul>
+    <% @business_profile.users.each do |user| %>
+      <li><%= link_to user.user_profile.name, user_profile_path(user.user_profile) %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<% if user_signed_in? %>
+  <% if current_user.business_profiles.include?(@business_profile) %>
+    <%= link_to "Leave this business", leave_business_profile_path, class: 'btn btn-danger' %>
+  <% else %>
+    <%= link_to "Join this business", join_business_profile_path, class: 'btn btn-success' %>
+  <% end %>
+<% end %>
+
+</div>
+</div>
+
+<%= link_to 'Edit', edit_business_profile_path(@business_profile) %> |
+<%= link_to 'Back', business_profiles_path %>
