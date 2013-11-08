@@ -11,6 +11,12 @@ StartupCommunity::Application.routes.draw do
   resources :user_profiles
 
   devise_for :users
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+  resources :relationships, only: [:create, :destroy]
   # get "home/index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
